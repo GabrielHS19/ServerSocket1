@@ -17,13 +17,13 @@ import java.util.logging.Logger;
  *
  * @author gabrielhs
  */
-public class HiloServidor extends Thread{
+public class HiloCliente extends Thread{
     BufferedReader fentrada;
     PrintWriter fsalida;
     Socket socket=null;
 
-    public HiloServidor(Socket s) {
-        socket=s;
+    public HiloCliente(Socket socket) {
+        this.socket=socket;
         
         try {
             fsalida=new PrintWriter(socket.getOutputStream(),true);
@@ -38,17 +38,17 @@ public class HiloServidor extends Thread{
     
     public void run (){
         try {
-            InputStreamReader isr=new InputStreamReader(socket.getInputStream());
-            BufferedReader receptor=new BufferedReader(isr);
+//            InputStreamReader isr=new InputStreamReader(socket.getInputStream());
+//            BufferedReader receptor=new BufferedReader(isr);
+//            
+//            PrintWriter emisor=new PrintWriter(socket.getOutputStream());
             
-            PrintWriter emisor=new PrintWriter(socket.getOutputStream());
-            
-            String msg=receptor.readLine();
+            String msg=fentrada.readLine();
             
             System.out.println("Msg:" + msg);
             
-            emisor.println("Quetal ..");
-            emisor.flush();
+            fsalida.println("Quetal ..");
+            fsalida.flush();
         } catch (Exception e) {
             e.printStackTrace();
         }

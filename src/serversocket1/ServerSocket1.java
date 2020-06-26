@@ -28,7 +28,7 @@ public class ServerSocket1 {
 
             Socket client=server.accept();
             System.out.println("Cliente Aceptado");
-            HiloServidor hilo = new HiloServidor(client);
+            HiloCliente hilo = new HiloCliente(client);
             hilo.start();
 //            InputStreamReader isr=new InputStreamReader(client.getInputStream());
 //            BufferedReader receptor=new BufferedReader(isr);

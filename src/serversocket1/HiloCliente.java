@@ -38,10 +38,6 @@ public class HiloCliente extends Thread{
     
     public void run (){
         try {
-//            InputStreamReader isr=new InputStreamReader(socket.getInputStream());
-//            BufferedReader receptor=new BufferedReader(isr);
-//            
-//            PrintWriter emisor=new PrintWriter(socket.getOutputStream());
             
             String msg=fentrada.readLine();
             
